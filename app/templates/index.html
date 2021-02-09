@@ -1,0 +1,15 @@
+
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class = "jumbotron">
+    <h1 class = "display-3">Hi!</h1>
+    <p class ="lead">Welcome to HIPE</p>
+    <p> the game of HIPE was described by Peter Winkler in his excellent collection of mathematical puzzles</p>
+
+    <p>the rules are very straightforward, you are given a string of letters, and your goal is to find an English word that contains those letters as a substring. So, for example, if the string were 'HIPE', the answer might be 'arcHIPElago'.</p>
+
+    <a class = "w3-btn w3-black" href="{{ url_for('random') }}">Play Hipe</a>
+</div>
+{% endblock %}

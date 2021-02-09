@@ -1,0 +1,39 @@
+ul.nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: rgb(34, 34, 34);
+}
+
+li.nav {
+  display: inline;
+  float: left;
+  /* The coding program you run may say that "float: left" is unnecessary, but you will need it because of what we do later */
+}
+
+li.nav a {
+  display: block;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li.nav a:hover {
+  background-color: black;
+  text-decoration: none;
+  color: white;
+  /* The text-decoration: none; and color: white; lines ensure that the links continue to look clean even while hovering over them. */
+}
+
+.active {
+  background-color: grey;
+}
+
+.active a:hover {
+  background-color: rgb(80, 80, 80);
+}

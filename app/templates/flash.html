@@ -1,0 +1,13 @@
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+    
+    {% for message in messages %}
+      <div class="w3-panel w3-green">
+        <p>{{ message }} </p>
+      </div> 
+    {% endfor %}
+    
+{% endfor %}
+{% endif %}
+{% endwith %}

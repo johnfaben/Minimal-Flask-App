@@ -1,0 +1,29 @@
+<html>
+  <head>
+     
+    {% if title %}
+    <title>{{ title }} - the game of HIPE</title>
+    {% else %}
+    <title>the game of HIPE</title>
+    {% endif %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="{{ url_for('static', filename='css/w3.css') }}" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+    <div class="w3-bar w3-black">
+      <a href="{{ url_for('index') }}" class="w3-bar-item w3-button w3-mobile">Home</a>
+      <a href="{{ url_for('random') }}"" class="w3-bar-item w3-button w3-mobile">Play Hipe</a>
+    </div>
+    <div class = "row">
+            {% include 'flash.html' %}
+   </div>
+   <div class = "row">
+            {% block content %}{% endblock %}
+   </div>
+
+            
+    </div>   
+  </body>
+</html>
