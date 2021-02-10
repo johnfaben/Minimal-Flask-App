@@ -59,7 +59,6 @@ wso,howsoever
 mdr,humdrum,gumdrop,gumdrops
 goh,megohm,megohms
 dsy,woodsy,sudsy
-gof,gofer
 aju,extrajudicial,ajuga
 wgu,blowguns,blowgun
 aji,haji,fajitas,fajita

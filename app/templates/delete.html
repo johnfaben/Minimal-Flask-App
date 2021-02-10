@@ -1,0 +1,19 @@
+<!-- extend base layout -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+    <p>Are you sure you want to delete the HIPE below from our database?</p>
+    <hr>
+    <h1>{{hipe.letters}}</h1>
+    <hr>
+    {% for answer in hipe.answers %}
+    <p>{{ answer}}</p>
+    {% endfor %}
+
+    <a class="w3-button w3-red" href="{{ url_for('confirm_delete',letters = hipe.letters) }}">Yes, it should be deleted</a>
+    <p class="w3-text-red b">Please only do this if none of the words above are common words</p>
+
+    <a class="w3-button w3-black" href="{{ url_for('random') }}">No, it's fine, give me another HIPE</a>
+{% endblock %}

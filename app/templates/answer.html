@@ -4,14 +4,31 @@
 
 {% block content %}
 
-<div class = "jumbotron">
-    <p class = "lead">Here are the words that contain the HIPE below:</p>
-    <hr class = "my-4">
-    <h1 class = "display-3">{{hipe.letters}}</h1>
-    <hr class = "my-4">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+        $(function() {
+          $('a#vote').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/vote/{{letters}}',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+</script>
+
+
+<div>
+    <p>Here are the words that contain the HIPE below:</p>
+    <hr>
+    <h1>{{hipe.letters}}</h1>
+    <hr>
     {% for answer in hipe.answers %}
     <p>{{ answer}}</p>
     {% endfor %}
 
-    <a class = "btn btn-primary" href="{{ url_for('random') }}">Get another HIPE</a>
+    <a class = "w3-btn w3-black" href="{{ url_for('random') }}">Get another HIPE</a>
+
+    <p class = "w3-text-gray">If you don't think any of the words above are common words, you can <a href = "{{url_for('delete',letters=hipe.letters)}}">delete</a> this from our database, but please be sure: once it's gone, it's gone.</p>
 {% endblock %}

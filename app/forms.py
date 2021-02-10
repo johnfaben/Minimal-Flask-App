@@ -24,12 +24,14 @@ class AnswerForm(FlaskForm):
         if not FlaskForm.validate(self):
             return False
 
-        if letters not in self.answer.data.lower():
+        if self.answer.data.strip().lower() in self.hipe.answers:
+          return True
+
+        if letters not in self.answer.data.strip().lower():
             self.answer.errors.append('The letters "%s" are not in the word "%s", try again.' %(letters,self.answer.data))
             return False
 
-        if self.answer.data.lower() in self.hipe.answers:
-          return True
+          
         else: 
             self.answer.errors.append('I do not think that "%s" is a word. Am I wrong?' %self.answer.data)
             return False

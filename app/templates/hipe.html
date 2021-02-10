@@ -4,6 +4,7 @@
 
 {% block content %}
 
+
 <div>
     <p>Can you find a word that contains the following letters?</p>
     <hr>
@@ -16,7 +17,7 @@
                 <div class="controls">
                     {{ form.answer(maxlength=26, class="span4") }}
                     {% for error in form.answer.errors %}
-                        <span class="help-inline">[{{ error }}]</span><br>
+                        <span class="w3-text-deep-orange">{{ error }}</span><br>
                     {% endfor %}
                 </div>
         </div>
