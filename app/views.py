@@ -58,5 +58,5 @@ def confirm_delete(letters):
 def vote(letters):
   hipe = Hipe(letters)
   if hipe.letters is not None:
-    hipe[letters][0] = hipe[letters][0] + 1
+    hipe.add_vote()
   return 'nothing'
