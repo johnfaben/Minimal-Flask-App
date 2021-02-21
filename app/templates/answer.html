@@ -14,6 +14,11 @@
     {% endfor %}
 
     <a class = "w3-btn w3-black" href="{{ url_for('random') }}">Get another HIPE</a>
-
+    {% if current_user.is_authenticated %}
+    <p><a class="w3-button w3-circle w3-black" href = "{{url_for('like', letters = hipe.letters) }}">+</a>
+    This has been liked by {{hipe.votes}} people so far. 
+    </p>
+    {% endif %}
+    
     <p class = "w3-text-gray">If you don't think any of the words above are common words, you can <a href = "{{url_for('delete',letters=hipe.letters)}}">delete</a> this from our database, but please be sure: once it's gone, it's gone.</p>
 {% endblock %}

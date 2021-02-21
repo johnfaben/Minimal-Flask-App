@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+    <p>Hi {{name}}</p>
+</div>
+<div class = 'w3-card'>
+  <p>Here's a list of the Hipes you've liked</p>
+  <ul>
+  {% for letters in liked %}
+  <li>
+    <a href= "{{url_for('answer',letters = letters)}}">{{letters}}</a>
+  </li>
+  {% endfor %}
+  </ul>
+</div>
+
+{% endblock %}
