@@ -16,7 +16,7 @@
     <a class = "w3-btn w3-black" href="{{ url_for('random') }}">Get another HIPE</a>
     {% if current_user.is_authenticated %}
     <p><a class="w3-button w3-circle w3-black" href = "{{url_for('like', letters = hipe.letters) }}">+</a>
-    This has been liked by {{hipe.votes}} people so far. 
+    This has been liked by {{hipe.get_votes()}} people so far. 
     </p>
     {% endif %}
     

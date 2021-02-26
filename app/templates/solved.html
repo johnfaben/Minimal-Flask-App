@@ -6,9 +6,9 @@
     <p>Hi {{name}}</p>
 </div>
 <div class = 'w3-card'>
-  <p>Here's a list of the Hipes you've liked</p>
+  <p>Here's a list of the Hipes you've solved</p>
   <ul>
-  {% for letters in liked %}
+  {% for letters in solved %}
   <li>
     <a href= "{{url_for('answer',letters = letters)}}">{{letters}}</a>
   </li>
@@ -16,6 +16,6 @@
   </ul>
 </div>
 
-<p>If you want to see all the Hipes you've solved, click <a href="{{url_for('user_solved')}}">here</a>.</p>
+
 
 {% endblock %}

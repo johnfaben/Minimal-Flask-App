@@ -37,11 +37,24 @@ def user():
   else:
     return redirect(url_for('login'))
 
+@app.route('/user_solved')
+@login_required
+def user_solved():
+  if current_user.is_authenticated:
+    return(render_template('solved.html',name=current_user.name, solved = current_user.get_solved()))
+  else:
+    return redirect(url_for('login'))
+
 def get_google_provider_cfg():
   return requests.get(app.config['GOOGLE_DISCOVERY_URL']).json()
 
 @app.route('/login')
 def login():
+  return render_template('login.html',title='Log In')
+
+
+@app.route('/login_google')
+def login_google():
   google_provider_cfg = get_google_provider_cfg()
   authorization_endpoint = google_provider_cfg['authorization_endpoint']
 
@@ -54,8 +67,8 @@ def login():
   return redirect(request_uri)
 
 
-@app.route("/login/callback")
-def callback():
+@app.route("/login_google/callback")
+def google_callback():
     # Get authorization code Google sent back to you
     code = request.args.get("code")
     google_provider_cfg = get_google_provider_cfg()
@@ -131,6 +144,9 @@ def hipe(letters):
   if form.is_submitted():
     if form.validate():
       flash('Well done!','success')
+      if current_user.is_authenticated:
+        current_user.add_solve(hipe)
+      
       return redirect(url_for('answer',letters=letters))
     else:
       flash(Markup('Not quite, to see the answers, click <a href = {link}>here</a>'.format( link = url_for('answer',letters=hipe.letters))),'failure')
@@ -168,7 +184,6 @@ def confirm_delete(letters):
 def like(letters):
   hipe = Hipe(letters)
   if hipe.letters is not None:
-      if current_user.add_hipe_to_liked(hipe.letters):
-        hipe.add_like()    
+      current_user.add_like(hipe)  
   return redirect(url_for('answer',letters=letters))
 
