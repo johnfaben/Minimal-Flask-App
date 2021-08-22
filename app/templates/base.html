@@ -4,7 +4,7 @@
     {% if title %}
     <title>{{ title }} - the game of HIPE</title>
     {% else %}
-    <title>the game of HIPE</title>
+    <title>Minimal Flask App</title>
     {% endif %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
@@ -14,14 +14,7 @@
 
     <div class="w3-bar w3-black">
       <a href="{{ url_for('index') }}" class="w3-bar-item w3-button w3-mobile">Home</a>
-      <a href="{{ url_for('random') }}" class="w3-bar-item w3-button w3-mobile">Play Hipe</a>
-      {%if current_user.is_authenticated %}
-      <a href = "{{ url_for('user') }}" class = "w3-bar-item w3-button w3-mobile">See Your Profile</a>
-      <a href = "{{ url_for('logout') }}" class = "w3-bar-item w3-button w3-mobile">Logout</a>
-      {% else %}
-      <a href = "{{ url_for('login') }}" class = "w3-bar-item w3-button w3-mobile">Login</a>
-      {% endif %}
-
+      <a href="{{ url_for('formpage') }}" class="w3-bar-item w3-button w3-mobile">Fill in a Form</a>
 
     </div>
     <div class = "row">

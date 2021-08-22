@@ -1,4 +1,0 @@
-xtd,nextdoor
-mwi,dimwit,dimwits,dimwitted
-fhe,halfheartedly,halfhearted
-cma,blancmange

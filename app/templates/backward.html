@@ -1,0 +1,15 @@
+
+<!-- extend base layout -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div>
+    <p>You typed {{letters}}</p>
+    <hr>
+    <p>{{letters}} backwards is:</p>
+    <p> {{letters[::-1]}}</p>
+</div>
+
+{% endblock %}
